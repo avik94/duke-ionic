@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Expert Power Quality Analyzer</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card mode="ios" style="height: 415px;">
+          <ion-card-header>
+            <ion-card-title>Input</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <form>
+              <ion-item>
+                <ion-label>Company</ion-label>
+                <ion-select mode="ios" interface="popover" placeholder="Select One">
+                  <ion-select-option value="f">Female</ion-select-option>
+                  <ion-select-option value="m">Male</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <!-- =============== -->
+              <ion-item>
+                <ion-label>Machine</ion-label>
+                <ion-select mode="ios" interface="popover" placeholder="Select One">
+                  <ion-select-option value="f">Female</ion-select-option>
+                  <ion-select-option value="m">Male</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <!-- =============== -->
+              <ion-item>
+                <ion-label>Group</ion-label>
+                <ion-select mode="ios" interface="popover" placeholder="Select One">
+                  <ion-select-option value="f">Female</ion-select-option>
+                  <ion-select-option value="m">Male</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <!-- =============== -->
+              <ion-item>
+                <ion-label>Stats</ion-label>
+                <ion-select mode="ios" interface="popover" placeholder="Select One">
+                  <ion-select-option value="f">Female</ion-select-option>
+                  <ion-select-option value="m">Male</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <!-- =============== -->
+              <ion-item>
+                <ion-label>Threshold</ion-label>
+                <ion-input type="number" mode="ios"></ion-input>
+              </ion-item>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- =============================================================== -->
+      <ion-col size="6">
+        <ion-card mode="ios" style="height: 415px;">
+          <ion-card-header>
+            <ion-card-title>Customize Date Time ranges input</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            <form>
+              <ion-item>
+                <ion-label>MM DD YY</ion-label>
+                <ion-datetime displayFormat="MM DD YY" placeholder="Start Date"></ion-datetime>
+              </ion-item>
+              <ion-item>
+                <ion-label>Hours</ion-label>
+                <ion-input type="number" mode="ios"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>Minutes(UTC)</ion-label>
+                <ion-input type="number" mode="ios"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>MM DD YY</ion-label>
+                <ion-datetime displayFormat="MM DD YY" placeholder="To Date"></ion-datetime>
+              </ion-item>
+              <ion-item>
+                <ion-label>Hours</ion-label>
+                <ion-input type="number" mode="ios"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>Minutes(UTC)</ion-label>
+                <ion-input type="number" mode="ios"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>Company</ion-label>
+                <ion-select mode="ios" interface="popover" placeholder="Select One">
+                  <ion-select-option value="f" *ngFor = "let item of timeRanges">{{item.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
