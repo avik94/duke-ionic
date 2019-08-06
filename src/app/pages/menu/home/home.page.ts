@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuService } from '../menu.service';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  constructor( private menuService: MenuService ) { }
 
   ngOnInit() {
   }
-  
+
   timeRanges = [
     { name: "Last 1 minutes" },
     { name: "Last 5 minutes" },
@@ -26,5 +27,15 @@ export class HomePage implements OnInit {
     { name: "Last 2 days" },
     { name: "Last 3 days" }
   ]
+
+  group = [
+    { name: "MRI Health"},
+    { name: "Energy Audit"},
+    { name: "Drive Health"}
+  ]
+
+  submitForm(){
+    this.menuService.changeDisableValue.emit(false);
+  }
 
 }

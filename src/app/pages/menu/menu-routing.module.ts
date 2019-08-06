@@ -11,7 +11,11 @@ const routes: Routes = [
         path: '',
         redirectTo: 'dashboard'
       },
-      { path: 'dashboard/:name', loadChildren: './home/home.module#HomePageModule' }
+      { path: 'dashboard', loadChildren: './home/home.module#HomePageModule' },
+      { path: 'line-plot', loadChildren: './line-plot/line-plot.module#LinePlotPageModule' },
+      { path: 'fft', loadChildren: './fft/fft.module#FftPageModule' },
+      { path: 'psd', loadChildren: './psd/psd.module#PsdPageModule' },
+      { path: 'data-table', loadChildren: './data-table/data-table.module#DataTablePageModule' },
     ]
   },
 ];

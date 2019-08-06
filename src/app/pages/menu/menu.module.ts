@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { MenuPage } from './menu.page';
 import {MenuRoutingModule} from './menu-routing.module';
+import {HeaderModule} from '../../components/header/header.module';
 
 const routes: Routes = [
   {
@@ -16,13 +17,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    MenuRoutingModule,
-    RouterModule.forChild(routes)
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        MenuRoutingModule,
+        RouterModule.forChild(routes),
+        HeaderModule
+    ],
   declarations: [MenuPage]
 })
 export class MenuPageModule {}

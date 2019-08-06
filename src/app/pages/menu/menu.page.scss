@@ -2,9 +2,10 @@ ion-menu {
   ion-content {
     .menu_header {
       background: url("../../../assets/image/material-background.png") no-repeat;
+      // background: linear-gradient(45deg, var(--ion-color-secondary), var(--ion-color-tertiary));
       background-size: cover;
       padding: 30px;
-      border-bottom: 4px solid var(--ion-color-secondary);
+      border-bottom: 4px solid var(--ion-color-warning);
       position: relative;
       color: var(--ion-color-light);
 
@@ -17,7 +18,8 @@ ion-menu {
         border: 2px solid var(--ion-color-tertiary);
       }
     }
-    --background: var(--menu-gradient);
+    --background: linear-gradient(to bottom, var(--ion-color-secondary), #0c1469);
+   // --background: linear-gradient(-45deg, var(--ion-color-secondary), var(--ion-color-primary));
     ion-list {
       --ion-item-background: transparent;
     }
@@ -25,10 +27,32 @@ ion-menu {
 
   --width: 340px;
 }
-ion-icon{
-  color: #f2f2f2;
-}
-ion-label{
-  color: #f2f2f2!important;
+
+.split-pane-md.split-pane-visible>.split-pane-side {
+  border-right: 0;
 }
 
+.editor_choice {
+  color: var(--ion-color-warning);
+  font-weight: bold;
+  animation: textgrowth 1.5s infinite alternate;   
+}
+.notActivate{
+  animation: none;
+  font-weight: none;
+  color: #f2f2f2;
+}
+.backGroundMenu{
+  background: #0c176d52;
+}
+
+@keyframes textgrowth {
+   0% {
+  //  font-size: 12px;
+   opacity: 0.3
+   }
+   100% {
+  //  font-size: 18px;
+   opacity: 1;
+   }
+}
