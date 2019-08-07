@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./data-table.page.scss'],
 })
 export class DataTablePage implements OnInit {
+  filter;
+  p: number = 1;
 
   constructor() { }
 
