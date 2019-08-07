@@ -23,82 +23,67 @@ export class DataTablePage implements OnInit {
     title: 'asfasf',
     useBom: false,
     removeNewLines: true,
-    keys: ['category','sponsorName','logoUrl' ]
+    keys: ['category', 'sponsorName', 'logoUrl']
   };
 
-  
+
 
   dataOfTable = [
     {
-      category: "category1",
-      sponsorName: "sponsorname2",
-      logoUrl: "logo2"
+      TimeStamp: "date",
+      Ph1_Voltage_Variation: 0,
+      Ph2_Voltage_Variation: 0,
+      Ph3_Voltage_Variation: 0,
     },
     {
-      category: "category2",
-      sponsorName: "sponsorname2",
-      logoUrl: "logorl2"
+      TimeStamp: "date",
+      Ph1_Voltage_Variation: 0,
+      Ph2_Voltage_Variation: 0,
+      Ph3_Voltage_Variation: 0,
     },
     {
-      category: "category1",
-      sponsorName: "sponsorname2",
-      logoUrl: "logo2"
+      TimeStamp: "date",
+      Ph1_Voltage_Variation: 0,
+      Ph2_Voltage_Variation: 0,
+      Ph3_Voltage_Variation: 0,
     },
     {
-      category: "category2",
-      sponsorName: "sponsorname2",
-      logoUrl: "logorl2"
+      TimeStamp: "date",
+      Ph1_Voltage_Variation: 0,
+      Ph2_Voltage_Variation: 0,
+      Ph3_Voltage_Variation: 0,
     },
     {
-      category: "category1",
-      sponsorName: "sponsorname2",
-      logoUrl: "logo2"
+      TimeStamp: "date",
+      Ph1_Voltage_Variation: 0,
+      Ph2_Voltage_Variation: 0,
+      Ph3_Voltage_Variation: 0,
     },
     {
-      category: "category2",
-      sponsorName: "sponsorname2",
-      logoUrl: "logorl2"
+      TimeStamp: "date",
+      Ph1_Voltage_Variation: 0,
+      Ph2_Voltage_Variation: 0,
+      Ph3_Voltage_Variation: 0,
     },
     {
-      category: "category1",
-      sponsorName: "sponsorname2",
-      logoUrl: "logo2"
+      TimeStamp: "date",
+      Ph1_Voltage_Variation: 0,
+      Ph2_Voltage_Variation: 0,
+      Ph3_Voltage_Variation: 0,
     },
     {
-      category: "category2",
-      sponsorName: "sponsorname2",
-      logoUrl: "logorl2"
+      TimeStamp: "date",
+      Ph1_Voltage_Variation: 0,
+      Ph2_Voltage_Variation: 0,
+      Ph3_Voltage_Variation: 0,
     },
     {
-      category: "category1",
-      sponsorName: "sponsorname2",
-      logoUrl: "logo2"
+      TimeStamp: "date",
+      Ph1_Voltage_Variation: 0,
+      Ph2_Voltage_Variation: 0,
+      Ph3_Voltage_Variation: 1,
     },
-    {
-      category: "category2",
-      sponsorName: "sponsorname2",
-      logoUrl: "logorl2"
-    },
-    {
-      category: "category1",
-      sponsorName: "sponsorname2",
-      logoUrl: "logo2"
-    },
-    {
-      category: "category2",
-      sponsorName: "sponsorname2",
-      logoUrl: "logorl2"
-    },
-    {
-      category: "category1",
-      sponsorName: "sponsorname2",
-      logoUrl: "logo2"
-    },
-    {
-      category: "category2",
-      sponsorName: "sponsorname2",
-      logoUrl: "logorl2"
-    },
+    
   ]
 
 }

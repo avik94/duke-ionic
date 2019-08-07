@@ -1,0 +1,23 @@
+th, td{
+    padding-right: 1.75rem;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    color: #1a2138;
+    position: relative;
+    padding: 0.875rem 1.25rem;
+    border: 1px solid #edf1f7;
+    vertical-align: middle;
+}
+.searchBox{
+    border: 1px solid var(--ion-color-medium);
+    border-radius: 2px;
+}
+
+.csvBtn button {
+    background: transparent !important;
+}
+angular2csv >>> button{
+    background-color: transparent;
+    color: #ffffff;
+}

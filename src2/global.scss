@@ -1,0 +1,236 @@
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+$padMarList: 0 2 5 8 10 12 17 20 24 32;
+$sides: left top right bottom;
+
+$fontStart: 0 1 2 3;
+$fontEnd: 0 2 4 6 8;
+
+// old style colors to generate background
+$colors: (
+        white: #fff,
+        gray: #ccc
+);
+
+// custom fonts
+@font-face {
+  font-family: RegularCustom;
+  src: url('./assets/font/Varela.ttf');
+}
+
+@font-face {
+  font-family: Exo;
+  src: url('./assets/font/Exo2-Regular.ttf');
+}
+
+@font-face {
+  font-family: Exo-Bold;
+  src: url('./assets/font/Exo2-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: Prompt-Regular;
+  src: url('./assets/font/Prompt-Regular.ttf');
+}
+@font-face {
+  font-family: Digital;
+  src: url('./assets/font/digital-7.mono.ttf');
+}
+@font-face {
+  font-family: Nunito;
+  src: url("./assets/font/Nunito-Bold.ttf");
+}
+
+@font-face {
+  font-family: Titillium;
+  src: url("./assets/font/Titillium.ttf");
+}
+
+ion-app {
+  @each $i in $padMarList {
+    @each $side in $sides {
+      [pad-#{$i}-#{$side}] {
+        padding-#{$side}: #{$i}px !important;
+      }
+      [mar-#{$i}-#{$side}] {
+        margin-#{$side}: #{$i}px !important;
+      }
+    }
+
+    [pad-#{$i}] {
+      padding: #{$i}px !important;
+    }
+
+    [pad-#{$i}-top] {
+      padding-top: #{$i}px !important;
+    }
+
+    [pad-#{$i}-bottom] {
+      padding-bottom: #{$i}px !important;
+    }
+
+    [pad-#{$i}-horizontal] {
+      padding-left: #{$i}px !important;
+      padding-right: #{$i}px !important;
+    }
+
+    [pad-#{$i}-vertical] {
+      padding-top: #{$i}px !important;
+      padding-bottom: #{$i}px !important;
+    }
+
+    [mar-#{$i}] {
+      margin: #{$i}px !important;
+    }
+
+    [mar-#{$i}-horizontal] {
+      margin-left: #{$i}px !important;
+      margin-right: #{$i}px !important;
+    }
+
+    [mar-#{$i}-vertical] {
+      margin-top: #{$i}px !important;
+      margin-bottom: #{$i}px !important;
+    }
+    [mar-#{$i}-bottom] {
+      margin-bottom: #{$i}px !important;
+    }
+    [mar-#{$i}-top] {
+      margin-top: #{$i}px !important;
+    }
+  }
+
+  ion-title[mar-left] {
+    margin-left: 50px;
+  }
+
+  ion-title[mar-right] {
+    margin-right: 50px;
+  }
+
+  @each $i in $fontStart {
+    @each $j in $fontEnd {
+      $k: '#{$i}.#{$j}';
+      [font-#{$i}-#{$j}-em] {
+        font-size: #{$k}em !important;
+      }
+
+      [font-#{$i}-#{$j}-rem] {
+        font-size: #{$k}rem !important;
+      }
+    }
+  }
+
+  @each $color, $value in $colors {
+    .back-#{$color} {
+      background-color: #{$value} !important;
+    }
+    .color-#{$color} {
+      color: #{$value} !important;
+    }
+  }
+
+  .back-color {
+    background-color: var(--ion-color-base) !important;
+  }
+
+  .text-color {
+    color: var(--ion-color-base) !important;
+  }
+
+  [position-relative] {
+    position: relative;
+  }
+
+  [position-absolute] {
+    position: absolute;
+  }
+
+  [display-none] {
+    display: none;
+  }
+
+  [display-block] {
+    display: block;
+  }
+
+  [display-inline] {
+    display: inline;
+  }
+
+  [display-inline-block] {
+    display: inline-block;
+  }
+
+  [display-inline-flex] {
+    display: inline-flex;
+  }
+
+  [wrap] {
+    white-space: normal !important;
+  }
+
+  [no-wrap] {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .font-heading {
+    font-family: Exo, sans-serif !important;
+  }
+
+  .font-heading-bold {
+    font-family: Exo-Bold, sans-serif !important;
+  }
+
+  .font-btn {
+    font-family: Prompt-Regular, sans-serif !important;
+  }
+
+  .regular-custom {
+    font-family: RegularCustom, sans-serif !important;
+  }
+
+  .font-digital {
+    font-family: Digital, sans-serif !important;
+  }
+
+  .font-nunito {
+    font-family: Nunito, sans-serif !important;
+  }
+
+  .font-titillium {
+    font-family: Titillium, sans-serif !important;
+  }
+
+  hr {
+    background-color: var(--ion-color-medium);
+  }
+
+  ion-button {
+    font-family: Nunito, sans-serif;
+    letter-spacing: 1.5px;
+    font-size: 1rem;
+    text-transform: lowercase;
+  }
+
+  /*input:-webkit-autofill:active {
+    --highlight-background: rgb(254, 53, 95) !important;
+  }*/
+}

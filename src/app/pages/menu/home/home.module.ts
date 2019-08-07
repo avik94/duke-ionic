@@ -7,6 +7,10 @@ import { IonicModule } from '@ionic/angular';
 
 import { HomePage } from './home.page';
 import {HeaderModule} from '../../../components/header/header.module';
+import {MainColModule} from '../../../directives/main-col.directive';
+import {CalendarModule} from 'ion2-calendar';
+import {FooterModule} from '../../../components/footer/footer.module';
+
 
 const routes: Routes = [
   {
@@ -21,7 +25,10 @@ const routes: Routes = [
         FormsModule,
         IonicModule,
         RouterModule.forChild(routes),
-        HeaderModule
+        HeaderModule,
+        MainColModule,
+        CalendarModule,
+        FooterModule
     ],
   declarations: [HomePage]
 })

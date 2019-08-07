@@ -1,51 +1,44 @@
-<app-header title="MediPQ:- Expert Power Quality Analyzer"></app-header>
+<app-header title="#MediPQ:- Expert Power Quality Analyzer"></app-header>
 
 <ion-content>
 
     <ion-grid>
         <form>
             <ion-row>
-                <ion-col size="6">
-                    <ion-card mode="ios" style="height: 550px;">
+                <ion-col size="6"> <!--size-xl="5" offsetXl="1"-->
+                    <ion-card mode="ios" style="height: 495px;">
                         <ion-card-header>
-                            <ion-card-title>Input</ion-card-title>
+                            <ion-card-title class="font-heading-bold" color="dark">Input</ion-card-title>
                         </ion-card-header>
+                        <hr>
 
                         <ion-card-content>
-                            <ion-label>Company</ion-label>
-                            <ion-item>
+                            <ion-item lines="full">
+                                <ion-label class="font-nunito" color="medium">Machine</ion-label>
                                 <ion-select mode="ios" interface="popover" placeholder="Select One">
-                                    <ion-select-option value="f">Female</ion-select-option>
-                                    <ion-select-option value="m">Male</ion-select-option>
+                                    <ion-select-option value="f">1PortESProd1</ion-select-option>
+                                    <ion-select-option value="m">DukeMotorTest1</ion-select-option>
                                 </ion-select>
                             </ion-item>
                             <!-- =============== -->
-                            <ion-label>Machine</ion-label>
-                            <ion-item>
-                                <ion-select mode="ios" interface="popover" placeholder="Select One">
-                                    <ion-select-option value="f">Female</ion-select-option>
-                                    <ion-select-option value="m">Male</ion-select-option>
-                                </ion-select>
-                            </ion-item>
-                            <!-- =============== -->
-                            <ion-label>Group</ion-label>
-                            <ion-item>
+                            <ion-item lines="full">
+                                <ion-label class="font-nunito" color="medium">Group</ion-label>
                                 <ion-select mode="ios" interface="popover" placeholder="Select One">
                                     <ion-select-option [value]="i+1" *ngFor="let item of group; let i = index">
                                         {{item.name}}</ion-select-option>
                                 </ion-select>
                             </ion-item>
                             <!-- =============== -->
-                            <ion-label>Stats</ion-label>
-                            <ion-item>
+                            <ion-item lines="full">
+                                <ion-label class="font-nunito" color="medium">Stats</ion-label>
                                 <ion-select mode="ios" interface="popover" placeholder="Select One">
-                                    <ion-select-option value="f">Female</ion-select-option>
-                                    <ion-select-option value="m">Male</ion-select-option>
+                                    <ion-select-option value="f">Voltage</ion-select-option>
+                                    <ion-select-option value="m">Current</ion-select-option>
                                 </ion-select>
                             </ion-item>
                             <!-- =============== -->
-                            <ion-label>Threshold</ion-label>
-                            <ion-item>
+                            <ion-item lines="full">
+                                <ion-label position="floating" class="font-nunito" color="medium">Threshold</ion-label>
                                 <ion-input type="number" mode="ios" min="0"></ion-input>
                             </ion-item>
                         </ion-card-content>
@@ -54,49 +47,64 @@
 
                 <!-- =============================================================== -->
                 <ion-col size="6">
-                    <ion-card mode="ios" style="height: 550px;">
+                    <ion-card mode="ios" style="height: 495px;">
                         <ion-card-header>
-                            <ion-card-title>Customize Date Time ranges input</ion-card-title>
+                            <ion-card-title class="font-heading-bold" color="dark">Customize Date Time ranges input</ion-card-title>
                         </ion-card-header>
+                        <hr>
                         <ion-card-content>
-                            <ion-label>Quick Time Range</ion-label>
                             <ion-item>
+                                <ion-label class="font-nunito" color="medium">Quick Time Range</ion-label>
                                 <ion-select mode="ios" interface="popover" placeholder="Select One">
                                     <ion-select-option [value]="item" *ngFor="let item of timeRanges">{{item.name}}
                                     </ion-select-option>
                                 </ion-select>
                             </ion-item>
-                            <ion-label>MM DD YY</ion-label>
+                            <div text-center pad-10-vertical>
+                                <ion-text class="font-heading-bold" color="dark">----- OR -----</ion-text>
+                            </div>
                             <ion-item>
-                                <ion-datetime displayFormat="MM DD YY" placeholder="Start Date"></ion-datetime>
+                                <ion-label class="font-nunito" color="medium">MM DD YY</ion-label>
+<!--                                <ion-datetime displayFormat="MM DD YY" placeholder="Start Date"></ion-datetime>-->
+                                <ion-label>{{selectedDate1}}</ion-label>
+                                <ion-button fill="clear" (click)="openCalendar('calendar1')" color="success">
+                                    <ion-icon name="calendar" slot="end"></ion-icon>
+                                </ion-button>
                             </ion-item>
-                            <ion-label>Hours</ion-label>
                             <ion-item>
+                                <ion-label position="floating" class="font-nunito" color="medium">Hours</ion-label>
                                 <ion-input type="number" mode="ios" min="0"></ion-input>
                             </ion-item>
-                            <ion-label>Minutes(UTC)</ion-label>
                             <ion-item>
+                                <ion-label position="floating" class="font-nunito" color="medium">Minutes(UTC)</ion-label>
                                 <ion-input type="number" mode="ios" min="0"></ion-input>
                             </ion-item>
-                            <ion-label>MM DD YY</ion-label>
                             <ion-item>
-                                <ion-datetime displayFormat="MM DD YY" placeholder="To Date"></ion-datetime>
+                                <ion-label class="font-nunito" color="medium">MM DD YY</ion-label>
+<!--                                <ion-datetime displayFormat="MM DD YY" placeholder="To Date"></ion-datetime>-->
+                                <ion-label>{{selectedDate2}}</ion-label>
+                                <ion-button fill="clear" (click)="openCalendar()" color="success">
+                                    <ion-icon name="calendar" slot="end"></ion-icon>
+                                </ion-button>
                             </ion-item>
-                            <ion-label>Hours</ion-label>
                             <ion-item>
+                                <ion-label position="floating" class="font-nunito" color="medium">Hours</ion-label>
                                 <ion-input type="number" mode="ios" min="0"></ion-input>
                             </ion-item>
-                            <ion-label>Minutes(UTC)</ion-label>
                             <ion-item>
+                                <ion-label position="floating" class="font-nunito" color="medium">Minutes(UTC)</ion-label>
                                 <ion-input type="number" mode="ios" min="0"></ion-input>
                             </ion-item>
                         </ion-card-content>
                     </ion-card>
                 </ion-col>
+                <ion-col size="4" offset="4">
+                    <div text-center>
+                        <ion-button expand="block" size="large" (click)="submitForm()">Submit</ion-button>
+                    </div>
+                </ion-col>
             </ion-row>
-            <div text-center>
-                <ion-button expand="block" size="large" (click)="submitForm()">Submit</ion-button>
-            </div>
         </form>
     </ion-grid>
+<!--    <app-footer></app-footer>-->
 </ion-content>

@@ -2,7 +2,7 @@
 </app-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card mode="ios">
     <ion-card-header>
       <div text-start>
         <ion-grid>
@@ -14,7 +14,7 @@
             <ion-col size-lg="3" offset-lg="6" size-xs="3">
               <div text-end>
                 <ion-button>
-                  <angular2csv class="csvBtn" [data]="dataOfTable" filename="test.csv" [options]="options">
+                  <angular2csv class="csvBtn" [data]="dataOfTable" filename="data-list.csv" [options]="options">
                   </angular2csv>
                 </ion-button>
               </div>
@@ -27,18 +27,21 @@
     <ion-card-content mode="ios">
       <table style="width:100%">
         <tr>
-          <th>Category</th>
-          <th>Sponsor</th>
-          <th>logoUrl</th>
+          <th>TimeStamp</th>
+          <th>Ph1_Voltage_Variation</th>
+          <th>Ph2_Voltage_Variation</th>
+          <th>Ph3_Voltage_Variation</th>
         </tr>
 
         <!-- table Data -->
         <tr class="tableRow"
+          [ngClass] = "{'oddTr': i%2 === 0}"
           *ngFor="let item of dataOfTable | filter:filter | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
-          <td>{{item.category}}</td>
-          <td>{{item.sponsorName}}</td>
-          <td>{{item.logoUrl}}</td>
-        </tr>
+          <td>{{item.TimeStamp}}</td>
+          <td>{{item.Ph1_Voltage_Variation}}</td>
+          <td>{{item.Ph2_Voltage_Variation}}</td>
+          <td>{{item.Ph3_Voltage_Variation}}</td>
+        </tr>       
         <!-- tableData end -->
       </table>
     </ion-card-content>

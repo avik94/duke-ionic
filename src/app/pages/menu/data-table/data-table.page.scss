@@ -8,9 +8,18 @@ th, td{
     padding: 0.875rem 1.25rem;
     border: 1px solid #edf1f7;
     vertical-align: middle;
+    text-align: center;
+}
+th{
+    background: #1a73e8;
+    border: 1px solid #e0e0e0;
+    color: #ffffff;
+}
+.oddTr{
+    background: #f2f2f2;
 }
 .searchBox{
-    border: 1px solid var(--ion-color-medium);
+    border: 1px solid var(--ion-color-light);
     border-radius: 2px;
 }
 
@@ -18,5 +27,6 @@ th, td{
     background: transparent !important;
 }
 angular2csv >>> button{
-    padding:50px;
+    background: transparent;
+    color:#ffffff;
 }
