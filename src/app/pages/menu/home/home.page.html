@@ -1,9 +1,15 @@
 <app-header title="#MediPQ:- Expert Power Quality Analyzer"></app-header>
 
 <ion-content>
-<div class="custom_model">
-    <section>
-        <p>Test Css</p>
+<div [ngClass]= "{'custom_model': modal}">
+    <section class="modalSection">
+        <ion-text color="light" mode="ios">
+                <div text-center><ion-title pad-32-top color="light">Successfully submitted</ion-title></div>
+                        <div text-center padding>
+                            <ion-text class="font-heading" color="light">Please select the options from side menu</ion-text>
+                        </div>
+            <!-- <h4 style="text-align: center;padding:40px 10px;line-height: 30px;">Go To Sidebar!<br>To Get Result</h4> -->
+        </ion-text>
     </section>
 </div>
     <ion-grid>

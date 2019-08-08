@@ -1,38 +1,47 @@
+.modalSection{
+  display: none;
+}
+@keyframes textgrowth {
+  0% {
+  top: 90%;
+  // opacity: 0;
+  }
+  100% {
+  top: 45%;
+  // opacity: 1;
+  }
+}
 .custom_model {
   position: fixed;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-
-  //&:after {
-  //  content: '';
-  //  height: 100vh;
-  //  width: 100vw;
-  //  position: absolute;
-  //  background: rgba(var(--ion-color-dark), .8);
-  //}
+  animation: textgrowth 10ms linear;
+  .modalSection{
+    display: block;
+    box-shadow: 0 4px 16px rgba(0,0,0,.12);
+  }
 
   section {
-    width: 300px;
+    width: 350px;
     height: 200px;
-    background: var(--ion-color-danger);
+    background: #103a92ed;
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    
 
     &:after {
       content: "";
       position: absolute;
       top: 82%;
-      left: -91px;
+      left: -76px;
       margin-left: 50px;
       width: 0;
       height: 0;
-      border-top: solid 71px #ff3d00;
+      border-top: solid 71px #1f4698;
       border-left: solid 20px transparent;
       border-right: solid 20px transparent;
+      -webkit-transform: rotate(60deg);
       transform: rotate(60deg);
     }
   }

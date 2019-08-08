@@ -38,26 +38,24 @@ export class HomePage implements OnInit {
 
     constructor(private menuService: MenuService, public modalCtrl: ModalController, public alertController: AlertController) {
     }
+    modal = false;
 
     ngOnInit() {
     }
 
-    async submitForm() {
-        const alert = await this.alertController.create({
-            header: 'Alert',
-            subHeader: 'Subtitle',
-            message: 'This is an alert message.',
-            buttons: [
-                {
-                    text: 'Ok',
-                    handler: () => {
-                        this.menuService.changeDisableValue.emit(false);
-                    }
-                }
-            ]
-        });
-        await alert.present();
+    closeModal(){
+        setTimeout(() => {
+            this.modal = false;
+        }, 1500);
     }
+    async submitForm() {
+        this.modal = true;
+        this.menuService.changeDisableValue.emit(false);
+        this.closeModal();
+    }
+
+
+
 
     //calender plugin
     async openCalendar(data) {
