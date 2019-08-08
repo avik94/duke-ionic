@@ -1,12 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuService} from '../menu.service';
-import {ModalController} from '@ionic/angular';
-import {
-    CalendarModal,
-    CalendarModalOptions,
-    DayConfig,
-    CalendarResult
-} from 'ion2-calendar';
+import {AlertController, ModalController} from '@ionic/angular';
+import {CalendarModal, CalendarModalOptions, CalendarResult} from 'ion2-calendar';
 
 @Component({
     selector: 'app-home',
@@ -41,49 +36,62 @@ export class HomePage implements OnInit {
         {name: 'Drive Health'}
     ];
 
-    constructor(private menuService: MenuService, public modalCtrl: ModalController) {
+    constructor(private menuService: MenuService, public modalCtrl: ModalController, public alertController: AlertController) {
     }
 
     ngOnInit() {
     }
 
-    submitForm() {
-        this.menuService.changeDisableValue.emit(false);
+    async submitForm() {
+        const alert = await this.alertController.create({
+            header: 'Alert',
+            subHeader: 'Subtitle',
+            message: 'This is an alert message.',
+            buttons: [
+                {
+                    text: 'Ok',
+                    handler: () => {
+                        this.menuService.changeDisableValue.emit(false);
+                    }
+                }
+            ]
+        });
+        await alert.present();
     }
 
     //calender plugin
     async openCalendar(data) {
-        if(data==="calendar1"){
+        if (data === 'calendar1') {
             const options: CalendarModalOptions = {
                 title: 'Basic'
             };
-    
+
             const myCalendar = await this.modalCtrl.create({
                 component: CalendarModal,
                 componentProps: {options: options}
             });
-    
+
             myCalendar.present();
-    
+
             const event: any = await myCalendar.onDidDismiss();
             const date: CalendarResult = event.data;
             this.selectedDate1 = date.string;
-        }else{
+        } else {
             const options: CalendarModalOptions = {
                 title: 'Basic'
             };
-    
+
             const myCalendar = await this.modalCtrl.create({
                 component: CalendarModal,
                 componentProps: {options: options}
             });
-    
+
             myCalendar.present();
-    
+
             const event: any = await myCalendar.onDidDismiss();
             const date: CalendarResult = event.data;
             this.selectedDate2 = date.string;
         }
-        
+
     }
 }

@@ -1,5 +1,5 @@
-import { EventEmitter } from '@angular/core';
+import {EventEmitter} from '@angular/core';
 
-export class MenuService{
-    changeDisableValue = new EventEmitter<boolean>(); 
+export class MenuService {
+    changeDisableValue = new EventEmitter<boolean>();
 }
