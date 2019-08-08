@@ -2,14 +2,11 @@
   display: none;
 }
 @keyframes textgrowth {
-  0% {
-  top: 90%;
-  // opacity: 0;
-  }
-  100% {
-  top: 45%;
-  // opacity: 1;
-  }
+  0%   {top: 70%; opacity: 0}
+  25%  {top: 61%; opacity: .8}
+  50%  {top: 52%;}
+  75%  {top: 48%;}
+  100% {top: 45%;}
 }
 .custom_model {
   position: fixed;
@@ -17,7 +14,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  animation: textgrowth 10ms linear;
+  animation: textgrowth 500ms ease-in-out;
   .modalSection{
     display: block;
     box-shadow: 0 4px 16px rgba(0,0,0,.12);
