@@ -1,5 +1,4 @@
 th, td{
-    padding-right: 1.75rem;
     font-size: 0.9375rem;
     font-weight: 400;
     line-height: 1.25rem;
@@ -11,7 +10,7 @@ th, td{
     text-align: center;
 }
 th{
-    background: #1a73e8;
+    background: var(--ion-color-secondary);
     border: 1px solid #e0e0e0;
     color: #ffffff;
 }
@@ -21,7 +20,12 @@ th{
 .searchBox{
     border: 1px solid var(--ion-color-light);
     border-radius: 2px;
+
+    &:hover {
+        border: 1px solid var(--ion-color-dark);
+    }
 }
+
 
 .csvBtn button {
     background: transparent !important;
