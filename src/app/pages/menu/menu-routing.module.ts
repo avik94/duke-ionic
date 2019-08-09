@@ -16,8 +16,10 @@ const routes: Routes = [
       { path: 'fft', loadChildren: './fft/fft.module#FftPageModule' },
       { path: 'psd', loadChildren: './psd/psd.module#PsdPageModule' },
       { path: 'data-table', loadChildren: './data-table/data-table.module#DataTablePageModule' },
+      { path: 'input-data', loadChildren: './input-data/input-data.module#InputDataPageModule' },
     ]
   },
+
 ];
 
 @NgModule({

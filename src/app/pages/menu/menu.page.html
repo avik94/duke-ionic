@@ -24,7 +24,7 @@
             </div>
 
             <ion-list>
-                <ng-container *ngFor="let item of pages">
+                <ng-container *ngFor="let item of pages let i = index">
                     <ion-menu-toggle [autoHide]="false">
                         <ion-item lines="full" detail routerDirection="root" [routerLink]="[item.url]"
                             routerLinkActive="item-active">
