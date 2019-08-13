@@ -120,34 +120,44 @@
                 <ion-card mode="ios">
                     <ion-row>
                         <ion-col size="4" style="border-right: 1px solid gray;">
-                            <ion-title color="primary" text-center padding style="border-bottom: 1px solid gray;">UST
+                            <ion-title color="primary" text-center padding style="border-bottom: 1px solid gray;">
+                                UST<br>(24-hour)
                             </ion-title>
                             <ion-row text-center>
                                 <ion-col size="12">
-                                    <ion-label>Time</ion-label>
+                                    <ion-label><b>{{timedate | date: 'M/d/yy, h:mm a' : 'UTC'}}</b></ion-label>
                                 </ion-col>
                             </ion-row>
                         </ion-col>
                         <ion-col size="4" style="border-right: 1px solid gray;">
-                            <ion-title color="primary" text-center padding style="border-bottom: 1px solid gray;">IST
+                            <ion-title color="primary" text-center padding style="border-bottom: 1px solid gray;">
+                                IST<br>(24-hour)
                             </ion-title>
                             <ion-row text-center>
                                 <ion-col size="12">
-                                    <ion-label>Time</ion-label>
+                                    <ion-label><b>{{timedate | date: 'M/d/yy, h:mm a' : 'IST'}}</b></ion-label>
                                 </ion-col>
                             </ion-row>
                         </ion-col>
                         <ion-col size="4">
-                            <ion-title color="primary" text-center padding style="border-bottom: 1px solid gray;">EST
+                            <ion-title color="primary" text-center padding style="border-bottom: 1px solid gray;">
+                                EST<br>(24-hour)
                             </ion-title>
                             <ion-row text-center>
                                 <ion-col size="12">
-                                    <ion-label>Time</ion-label>
+                                    <ion-label><b>{{timedate | date: 'M/d/yy, h:mm a' : 'EST'}}</b></ion-label>
                                 </ion-col>
                             </ion-row>
                         </ion-col>
                     </ion-row>
                 </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row >
+            <ion-col size="12">
+                <div mode="ios"[ngClass] = "{animate: animate}">
+                    Hello
+                </div>
             </ion-col>
         </ion-row>
     </ion-grid>

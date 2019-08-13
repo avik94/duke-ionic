@@ -1,0 +1,17 @@
+.animate{
+    transition: hey 2s ease-in forward 1s;
+}
+@keyframes hey{
+    0%{
+         opacity: 1;
+         background: red;
+    }
+    50%{
+        transform: translateX(5px);
+        opacity: 0.5;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 0;
+    }
+}
