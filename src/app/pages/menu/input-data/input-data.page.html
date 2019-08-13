@@ -4,8 +4,8 @@
     <ion-grid>
         <ion-row>
             <ion-col size-lg="4" size-xs="12">
-                <ion-card mode="ios">
-                    <ion-card-header>
+                <ion-card mode="ios" style="min-height: 327px;">
+                    <ion-card-header style="border-bottom: 1px solid #f2f2f2;">
                         <ion-card-title class="font-heading-bold" color="dark">Your Input</ion-card-title>
                     </ion-card-header>
                     <ion-card-content>
@@ -35,48 +35,70 @@
                 </ion-card>
             </ion-col>
 
+            <!-- working-now -->
             <ion-col size-lg="8" size-xs="12">
-                <ion-card mode="ios">
-                    <ion-row>
-                        <ion-col size="4" style="border-right: 1px solid gray;">
-                            <ion-title color="primary" text-center padding style="border-bottom: 1px solid gray;">UST
-                            </ion-title>
-                            <ion-row text-center>
-                                <ion-col size="6" style="border-right: 1px solid gray;">
-                                    <ion-label>To</ion-label>
-                                </ion-col>
-                                <ion-col size="6">
-                                    <ion-label>From</ion-label>
-                                </ion-col>
-                            </ion-row>
-                        </ion-col>
-                        <ion-col size="4" style="border-right: 1px solid gray;">
-                            <ion-title color="primary" text-center padding style="border-bottom: 1px solid gray;">IST
-                            </ion-title>
-                            <ion-row text-center>
-                                <ion-col size="6" style="border-right: 1px solid gray;">
-                                    <ion-label>To</ion-label>
-                                </ion-col>
-                                <ion-col size="6">
-                                    <ion-label>From</ion-label>
-                                </ion-col>
-                            </ion-row>
-                        </ion-col>
-                        <ion-col size="4">
-                            <ion-title color="primary" text-center padding style="border-bottom: 1px solid gray;">EST
-                            </ion-title>
-                            <ion-row text-center>
-                                <ion-col size="6" style="border-right: 1px solid gray;">
-                                    <ion-label>To</ion-label>
-                                </ion-col>
-                                <ion-col size="6">
-                                    <ion-label>From</ion-label>
-                                </ion-col>
-                            </ion-row>
-                        </ion-col>
-                    </ion-row>
+                <ion-card mode="ios" style="min-height: 275px;">
+                    <ion-card-header style="border-bottom:1px solid #f2f2f2;margin-bottom: 20px;">
+                        <ion-card-title class="font-heading-bold" color="dark">Your Input Time</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <ion-row style="margin-bottom: 5px;">
+                            <ion-col size="2" text-center padding>
+                                <ion-label color="primary">
+
+                                </ion-label>
+                            </ion-col>
+                            <ion-col size="4" text-center padding
+                                style="border-bottom: 1px solid #f2f2f2;border-right: 1px solid #f2f2f2">
+                                <ion-label><b>To</b></ion-label>
+                            </ion-col>
+                            <ion-col size="4" text-center padding style="border-bottom: 1px solid #f2f2f2">
+                                <ion-label><b>Form</b></ion-label>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row style="margin-bottom: 5px;">
+                            <ion-col size="2" text-center padding style="background: rgba(242, 242, 242, 0.30);">
+                                <ion-label color="primary">
+                                    UTC
+                                </ion-label>
+                            </ion-col>
+                            <ion-col size="4" text-center padding style="border-bottom: 1px solid #f2f2f2">
+                                <ion-label><b>{{toDateResult | date: 'M/d/yy, h:mm a' : 'UTC'}}</b></ion-label>
+                            </ion-col>
+                            <ion-col size="4" text-center padding style="border-bottom: 1px solid #f2f2f2">
+                                <ion-label><b>{{formDateResult | date: 'M/d/yy, h:mm a' : 'UTC'}}</b></ion-label>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row style="margin-bottom: 5px;">
+                            <ion-col size="2" text-center padding style="background: rgba(242, 242, 242, 0.30);">
+                                <ion-label color="primary">
+                                    IST
+                                </ion-label>
+                            </ion-col>
+                            <ion-col size="4" text-center padding style="border-bottom: 1px solid #f2f2f2">
+                                <ion-label><b>{{toDateResult | date: 'M/d/yy, h:mm a' : 'IST'}}</b></ion-label>
+                            </ion-col>
+                            <ion-col size="4" text-center padding style="border-bottom: 1px solid #f2f2f2">
+                                <ion-label><b>{{formDateResult | date: 'M/d/yy, h:mm a' : 'IST'}}</b></ion-label>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row style="margin-bottom: 5px;">
+                            <ion-col size="2" text-center padding style="background: rgba(242, 242, 242, 0.30);">
+                                <ion-label color="primary">
+                                    EST
+                                </ion-label>
+                            </ion-col>
+                            <ion-col size="4" text-center padding style="border-bottom: 1px solid #f2f2f2">
+                                <ion-label><b>{{toDateResult | date: 'M/d/yy, h:mm a' : 'EST'}}</b></ion-label>
+                            </ion-col>
+                            <ion-col size="4" text-center padding style="border-bottom: 1px solid #f2f2f2">
+                                <ion-label><b>{{formDateResult | date: 'M/d/yy, h:mm a' : 'EST'}}</b></ion-label>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
                 </ion-card>
             </ion-col>
+            <!-- working-now -->
         </ion-row>
     </ion-grid>
 
@@ -86,7 +108,7 @@
         <ion-row>
             <ion-col size-lg="4" size-xs="12">
                 <ion-card mode="ios">
-                    <ion-card-header>
+                    <ion-card-header style="border-bottom:1px solid #f2f2f2;">
                         <ion-card-title class="font-heading-bold" color="dark">Your Input</ion-card-title>
                     </ion-card-header>
                     <ion-card-content>
@@ -117,47 +139,43 @@
             </ion-col>
 
             <ion-col size-lg="8" size-xs="12">
-                <ion-card mode="ios">
-                    <ion-row>
-                        <ion-col size="4" style="border-right: 1px solid gray;">
-                            <ion-title color="primary" text-center padding style="border-bottom: 1px solid gray;">
-                                UST<br>(24-hour)
-                            </ion-title>
-                            <ion-row text-center>
-                                <ion-col size="12">
-                                    <ion-label><b>{{timedate | date: 'M/d/yy, h:mm a' : 'UTC'}}</b></ion-label>
-                                </ion-col>
-                            </ion-row>
-                        </ion-col>
-                        <ion-col size="4" style="border-right: 1px solid gray;">
-                            <ion-title color="primary" text-center padding style="border-bottom: 1px solid gray;">
-                                IST<br>(24-hour)
-                            </ion-title>
-                            <ion-row text-center>
-                                <ion-col size="12">
-                                    <ion-label><b>{{timedate | date: 'M/d/yy, h:mm a' : 'IST'}}</b></ion-label>
-                                </ion-col>
-                            </ion-row>
-                        </ion-col>
-                        <ion-col size="4">
-                            <ion-title color="primary" text-center padding style="border-bottom: 1px solid gray;">
-                                EST<br>(24-hour)
-                            </ion-title>
-                            <ion-row text-center>
-                                <ion-col size="12">
-                                    <ion-label><b>{{timedate | date: 'M/d/yy, h:mm a' : 'EST'}}</b></ion-label>
-                                </ion-col>
-                            </ion-row>
-                        </ion-col>
-                    </ion-row>
+                <ion-card mode="ios" style="min-height: 275px;">
+                    <ion-card-header style="border-bottom:1px solid #f2f2f2;margin-bottom: 20px;">
+                        <ion-card-title class="font-heading-bold" color="dark">Your Input Time</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <ion-row style="margin-bottom: 5px;">
+                            <ion-col size="2" text-center padding style="background: rgba(242, 242, 242, 0.30);">
+                                <ion-label color="primary">
+                                    UST
+                                </ion-label>
+                            </ion-col>
+                            <ion-col size="6" text-center padding style="border-bottom: 1px solid #f2f2f2">
+                                <ion-label><b>{{timedate | date: 'M/d/yy, h:mm a' : 'UTC'}}</b></ion-label>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row style="margin-bottom: 5px;">
+                            <ion-col size="2" text-center padding style="background: rgba(242, 242, 242, 0.30);">
+                                <ion-label color="primary">
+                                    IST
+                                </ion-label>
+                            </ion-col>
+                            <ion-col size="6" text-center padding style="border-bottom: 1px solid #f2f2f2">
+                                <ion-label><b>{{timedate | date: 'M/d/yy, h:mm a' : 'IST'}}</b></ion-label>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row style="margin-bottom: 5px;">
+                            <ion-col size="2" text-center padding style="background: rgba(242, 242, 242, 0.30);">
+                                <ion-label color="primary">
+                                    EST
+                                </ion-label>
+                            </ion-col>
+                            <ion-col size="6" text-center padding style="border-bottom: 1px solid #f2f2f2">
+                                <ion-label><b>{{timedate | date: 'M/d/yy, h:mm a' : 'EST'}}</b></ion-label>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
                 </ion-card>
-            </ion-col>
-        </ion-row>
-        <ion-row >
-            <ion-col size="12">
-                <div mode="ios"[ngClass] = "{animate: animate}">
-                    Hello
-                </div>
             </ion-col>
         </ion-row>
     </ion-grid>

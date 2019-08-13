@@ -17,8 +17,10 @@ export class HomePage implements OnInit {
     selectedDate1: any;
     selectedDate2: any;
 
+    quickTime = true;
 
     timeRanges = [
+        {name: 'Select None', value:"" },
         {name: 'Last 1 minutes', value:"1m" },
         {name: 'Last 5 minutes', value:"5m" },
         {name: 'Last 10 minutes', value:"10m" },
@@ -56,6 +58,7 @@ export class HomePage implements OnInit {
         this.machineForm.value.toDate = this.selectedDate1
         this.machineForm.value.formDate = this.selectedDate2
         this.menuService.setValue(this.machineForm.value)
+        this.machineForm.reset();
         this.router.navigate(['input-data'])
     }
 
