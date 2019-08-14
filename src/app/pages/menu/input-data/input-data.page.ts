@@ -40,7 +40,7 @@ export class InputDataPage implements OnInit {
     if (!data) {
       this.router.navigate(['dashboard'])
     } else {
-      if (!data.quickTimeRange && data.toDate && data.formDate && data.machineName) {
+      if (!data.quickTimeRange) {
         this.first = true;
         this.seccond = false;
 
