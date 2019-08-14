@@ -50,16 +50,10 @@ export class InputDataPage implements OnInit {
         this.fromDate = data.formDate;
         this.formHour = data.formHour;
         this.fromMinutes = data.formMinutes;
-
-        let yTo = this.toDate.split("-")[0]
-        let mTo = this.toDate.split("-")[1]
-        let dateTo = this.toDate.split("-")[2]
-
-        let yForm = this.fromDate.split("-")[0]
-        let mForm = this.fromDate.split("-")[1]
-        let dateForm = this.fromDate.split("-")[2]
-        this.toDateResult = new Date(yTo, mTo - 1, dateTo, this.toHour, this.toMinutes);
-        this.formDateResult = new Date(yForm, mForm - 1, dateForm, this.formHour, this.fromMinutes);
+        console.log(this.toDate, this.toHour.toString(), this.toMinutes.toString())
+        this.toDateResult = new Date(this.toDate+" "+this.toHour.toString()+":"+this.toMinutes.toString()+" "+"+0");
+        console.log(this.toDateResult)
+        this.formDateResult = new Date(this.fromDate+" "+this.formHour.toString()+":"+this.fromMinutes.toString()+" "+"+0");
       } else if (data.quickTimeRange) {
         this.first = false;
         this.seccond = true;

@@ -27,7 +27,7 @@
                         <ion-card-content>
                             <ion-item lines="full">
                                 <ion-label class="font-nunito" color="medium">Machine</ion-label>
-                                <ion-select formControlName="machine" mode="ios" interface="popover" placeholder="Select One">
+                                <ion-select formControlName="machine" interface="popover" placeholder="Select One">
                                     <ion-select-option value="1PortESProd1">1PortESProd1</ion-select-option>
                                     <ion-select-option value="DukeMotorTest1">DukeMotorTest1</ion-select-option>
                                 </ion-select>
@@ -35,7 +35,7 @@
                             <!-- =============== -->
                             <ion-item lines="full">
                                 <ion-label class="font-nunito" color="medium">Group</ion-label>
-                                <ion-select mode="ios" formControlName="group" interface="popover" placeholder="Select One">
+                                <ion-select formControlName="group" interface="popover" placeholder="Select One">
                                     <ion-select-option [value]="item.name" *ngFor="let item of group; let i = index">
                                         {{item.name}}</ion-select-option>
                                 </ion-select>
@@ -43,7 +43,7 @@
                             <!-- =============== -->
                             <ion-item lines="full">
                                 <ion-label class="font-nunito" color="medium">Stats</ion-label>
-                                <ion-select mode="ios" formControlName="stat" interface="popover" placeholder="Select One">
+                                <ion-select formControlName="stat" interface="popover" placeholder="Select One">
                                     <ion-select-option value="Voltage">Voltage</ion-select-option>
                                     <ion-select-option value="Current">Current</ion-select-option>
                                 </ion-select>
@@ -68,7 +68,7 @@
                         <ion-card-content>
                             <ion-item>
                                 <ion-label class="font-nunito" color="medium">Quick Time Range</ion-label>
-                                <ion-select mode="ios" interface="popover" formControlName="quickTimeRange" placeholder="Select One">
+                                <ion-select interface="popover" formControlName="quickTimeRange" placeholder="Select One">
                                     <ion-select-option [value]="item.value" *ngFor="let item of timeRanges">{{item.name}}
                                     </ion-select-option>
                                 </ion-select>

@@ -15,3 +15,7 @@
         opacity: 0;
     }
 }
+
+ion-toolbar {
+    --background: linear-gradient(to right, var(--ion-color-warning), #ff3d00);
+}

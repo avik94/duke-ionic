@@ -1,8 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ng-container *ngIf="backEnabled">
-      <ion-back-button slot="start" *ngIf="!backDefaultHref"></ion-back-button>
+    <ng-container>
+      <ion-buttons slot="start">
+        <ion-back-button *ngIf="!backDefaultHref"></ion-back-button>
       <ion-back-button slot="start" *ngIf="backDefaultHref" [defaultHref]="backDefaultHref"></ion-back-button>
+      </ion-buttons>
     </ng-container>
     <ion-menu-button slot="start"></ion-menu-button>
      <ion-title color="dark">{{title}}</ion-title>

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuService} from '../menu.service';
-import {AlertController, ModalController} from '@ionic/angular';
+import {AlertController, ModalController, NavController} from '@ionic/angular';
 import {CalendarModal, CalendarModalOptions, CalendarResult} from 'ion2-calendar';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -45,7 +45,7 @@ export class HomePage implements OnInit {
         private menuService: MenuService, 
         public modalCtrl: ModalController, 
         public alertController: AlertController,
-        private router: Router ) {
+        private router: NavController ) {
     }
     
 
@@ -55,11 +55,10 @@ export class HomePage implements OnInit {
   
     submitForm() {
         this.menuService.changeDisableValue.emit(false);
-        this.machineForm.value.toDate = this.selectedDate1
-        this.machineForm.value.formDate = this.selectedDate2
-        this.menuService.setValue(this.machineForm.value)
-        this.machineForm.reset();
-        this.router.navigate(['input-data'])
+        this.machineForm.value.toDate = this.selectedDate1;
+        this.machineForm.value.formDate = this.selectedDate2;
+        this.menuService.setValue(this.machineForm.value);
+        this.router.navigateForward(['input-data']);
     }
 
 

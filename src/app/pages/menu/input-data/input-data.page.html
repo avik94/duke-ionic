@@ -1,5 +1,14 @@
-<app-header title="Input Data"></app-header>
-
+<ion-header>
+    <ion-toolbar>
+        <ng-container>
+            <ion-buttons slot="start">
+                <ion-back-button></ion-back-button>
+            </ion-buttons>
+        </ng-container>
+        <ion-menu-button slot="start"></ion-menu-button>
+        <ion-title color="dark">Input Data</ion-title>
+    </ion-toolbar>
+</ion-header>   
 <ion-content no-padding *ngIf="first">
     <ion-grid>
         <ion-row>
@@ -178,6 +187,7 @@
                 </ion-card>
             </ion-col>
         </ion-row>
+        <p padding font-2-0em>*Please select the menu from sidemenu</p>
     </ion-grid>
 
 </ion-content>
