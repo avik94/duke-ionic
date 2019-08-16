@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-login',
@@ -25,11 +25,16 @@ export class LoginPage implements OnInit {
 
     goToHome() {
         this.showSpinet = false;
-        console.log(this.form.value);
-        localStorage.setItem('companyName',this.form.value.email)   
-        setTimeout(() => {
-            this.showSpinet = true;
-            this.router.navigate(['/dashboard']);
-        }, 2000);
+        if (this.form.value.email === "Novatec" || this.form.value.email === "DukeMedicalEquimentInternational" || this.form.value.email === "prop-new") {
+            localStorage.setItem('companyName', this.form.value.email)
+            setTimeout(() => {
+                this.showSpinet = true;
+                this.router.navigate(['/dashboard']);
+            }, 1000);
+        } else {
+            alert("Wrong User Id");
+            this.showSpinet = true;            
+        }
+
     }
 }
