@@ -1,12 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuService} from './menu.service';
 import {Events} from '@ionic/angular';
+import { ServerService } from './services/server.service';
 
 @Component({
     selector: 'app-menu',
     templateUrl: './menu.page.html',
     styleUrls: ['./menu.page.scss'],
-    providers: [MenuService]
+    providers: [MenuService, ServerService]
 })
 export class MenuPage implements OnInit {
 

@@ -15,7 +15,7 @@ export class LoginPage implements OnInit {
     constructor(private router: Router, private formBuilder: FormBuilder) {
 
         this.form = formBuilder.group({
-            email: ['', [Validators.required, Validators.email]],
+            email: ['', [Validators.required]],
             password: ['', [Validators.required]]
         });
     }
@@ -25,6 +25,8 @@ export class LoginPage implements OnInit {
 
     goToHome() {
         this.showSpinet = false;
+        console.log(this.form.value);
+        localStorage.setItem('companyName',this.form.value.email)   
         setTimeout(() => {
             this.showSpinet = true;
             this.router.navigate(['/dashboard']);

@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {MenuService} from '../menu.service';
-import {AlertController, ModalController, NavController} from '@ionic/angular';
-import {CalendarModal, CalendarModalOptions, CalendarResult} from 'ion2-calendar';
+import { Component, OnInit } from '@angular/core';
+import { MenuService } from '../menu.service';
+import { AlertController, ModalController, NavController } from '@ionic/angular';
+import { CalendarModal, CalendarModalOptions, CalendarResult } from 'ion2-calendar';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ServerService } from '../services/server.service';
 
 @Component({
     selector: 'app-home',
@@ -41,38 +41,55 @@ export class HomePage implements OnInit {
         {name: 'Drive Health'}
     ];
 
+    machineName = [];
+
     constructor(
         private menuService: MenuService, 
         public modalCtrl: ModalController, 
         public alertController: AlertController,
-        private router: NavController ) {
+        private router: NavController,
+        private serverService: ServerService ) {
     }
     
 
-    ngOnInit() {
+    async ngOnInit() {
+        const companyName = localStorage.getItem('companyName');
+        const data = await this.serverService.getMachineName(companyName);
+        for( let item of data["results"][0]["series"][0]["values"]){
+            // console.log(item)
+            this.machineName.push({machineName:item[1]});
+        }
     }
 
   
     submitForm() {
         this.menuService.changeDisableValue.emit(false);
-        this.machineForm.value.toDate = this.selectedDate1;
-        this.machineForm.value.formDate = this.selectedDate2;
-        this.menuService.setValue(this.machineForm.value);
+        this.customTimeRange.value.toDate = this.selectedDate1;
+        this.customTimeRange.value.formDate = this.selectedDate2;
+        const someValue = {...this.mandatoryForm.value,...this.quickTimeRange.value,...this.customTimeRange.value}
+        
+        this.menuService.setValue(someValue);
         this.router.navigateForward(['input-data']);
     }
 
 
     // form-section-sart
-    machineForm = new FormGroup({
+    quickTimeRange = new FormGroup({
+        'quickTimeRange': new FormControl(null,Validators.required),
+    })
+
+    mandatoryForm = new FormGroup({
         'machine': new FormControl(null,Validators.required),
         'group': new FormControl(null,Validators.required),
         'stat' : new FormControl(null,Validators.required),
-        'threshold' : new FormControl(null,Validators.required),
-        'quickTimeRange': new FormControl(null),
-        'toHour': new FormControl(null),
-        'toMinutes': new FormControl(null),
-        'formHour': new FormControl(null),
-        'formMinutes': new FormControl(null),
+        'threshold' : new FormControl(null,Validators.required)
+    })
+
+    customTimeRange = new FormGroup({
+        'toHour': new FormControl(null, Validators.required),
+        'toMinutes': new FormControl(null, Validators.required),
+        'formHour': new FormControl(null, Validators.required),
+        'formMinutes': new FormControl(null, Validators.required)
     })
 
 
@@ -110,5 +127,9 @@ export class HomePage implements OnInit {
             this.selectedDate2 = date.string;
         }
 
+    }
+
+    selectGroup(data){
+        console.log(data.detail.value)
     }
 }

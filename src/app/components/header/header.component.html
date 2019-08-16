@@ -8,7 +8,7 @@
     </ng-container>
     <ion-menu-button slot="start"></ion-menu-button>
      <ion-title color="dark">{{title}}</ion-title>
-    <!--<ion-button slot="end" fill="clear" shape="round" color="tertiary" font-1-4-em (click)="presentPopover($event)">
+    <!-- <ion-button slot="end" fill="clear" shape="round" color="tertiary" font-1-4-em (click)="presentPopover($event)">
       <ion-icon name="ios-notifications-outline"></ion-icon>
       <div class="notification-count">{{notifications.length}}</div>
     </ion-button>
@@ -16,7 +16,13 @@
       <ion-avatar slot="start">
         <ion-img style="border: 2px solid gray" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7YYYSoI95uoBQMx0l3szgn9V7RzDytGTGUuDI8Wx2OYfJCKYk"></ion-img>
       </ion-avatar>
-      <ion-label>Item Avatar</ion-label>
-    </ion-item>-->
+      <ion-label>Item Avatar</ion-label> -->
+      <!-- </ion-item> -->
+      <ion-button 
+        slot = "end" 
+        fill = "outline" 
+        style = "padding-right: 20px;"
+        (click) = "logout()" 
+        >Log Out</ion-button>
   </ion-toolbar>
 </ion-header>

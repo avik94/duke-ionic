@@ -1,41 +1,31 @@
 <app-header title="#MediPQ:- Expert Power Quality Analyzer"></app-header>
 
 <ion-content>
-    <!-- <div [ngClass]="{'custom_model': modal}">
-        <section class="modalSection">
-            <ion-text color="light" mode="ios">
-                <div text-center>
-                    <ion-title pad-32-top color="light">Successfully submitted</ion-title>
-                </div>
-                <div text-center padding>
-                    <ion-text class="font-heading" color="light">Please select the options from side menu</ion-text>
-                </div>
-            </ion-text>
-        </section>
-    </div> -->
     <ion-grid>
-        <form [formGroup]= "machineForm" (ngSubmit)="submitForm()">
-            <ion-row>
-                <ion-col size="6">
-                    <!--size-xl="5" offsetXl="1"-->
-                    <ion-card mode="ios" style="height: 550px;">
-                        <ion-card-header>
-                            <ion-card-title class="font-heading-bold" color="dark">Input</ion-card-title>
-                        </ion-card-header>
-                        <hr>
+        <ion-row>
+            <ion-col size="6">
+                <!--size-xl="5" offsetXl="1"-->
+                <ion-card mode="ios" style="height: 550px;">
+                    <ion-card-header>
+                        <ion-card-title class="font-heading-bold" color="dark">Input</ion-card-title>
+                    </ion-card-header>
+                    <hr>
 
-                        <ion-card-content>
+                    <ion-card-content>
+                        <form [formGroup]="mandatoryForm">
                             <ion-item lines="full">
                                 <ion-label class="font-nunito" color="medium">Machine</ion-label>
                                 <ion-select formControlName="machine" interface="popover" placeholder="Select One">
-                                    <ion-select-option value="1PortESProd1">1PortESProd1</ion-select-option>
-                                    <ion-select-option value="DukeMotorTest1">DukeMotorTest1</ion-select-option>
+                                    <div *ngFor ="let item of machineName">
+                                        <ion-select-option [value]="item.machineName">{{item.machineName}}</ion-select-option>
+                                    </div>
                                 </ion-select>
                             </ion-item>
                             <!-- =============== -->
                             <ion-item lines="full">
                                 <ion-label class="font-nunito" color="medium">Group</ion-label>
-                                <ion-select formControlName="group" interface="popover" placeholder="Select One">
+                                <ion-select formControlName="group" interface="popover" placeholder="Select One"
+                                    (ionChange)="selectGroup($event)">
                                     <ion-select-option [value]="item.name" *ngFor="let item of group; let i = index">
                                         {{item.name}}</ion-select-option>
                                 </ion-select>
@@ -53,26 +43,32 @@
                                 <ion-label position="floating" class="font-nunito" color="medium">Threshold</ion-label>
                                 <ion-input type="number" mode="ios" min="0" formControlName="threshold"></ion-input>
                             </ion-item>
-                        </ion-card-content>
-                    </ion-card>
-                </ion-col>
+                        </form>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
 
-                <!-- =============================================================== -->
-                <ion-col size="6">
-                    <ion-card mode="ios" style="height: 550px;">
-                        <ion-card-header>
-                            <ion-card-title class="font-heading-bold" color="dark">Customize Date Time ranges input
-                            </ion-card-title>
-                        </ion-card-header>
-                        <hr>
-                        <ion-card-content>
+            <!-- =============================================================== -->
+            <ion-col size="6">
+                <ion-card mode="ios" style="height: 550px;">
+                    <ion-card-header>
+                        <ion-card-title class="font-heading-bold" color="dark">Customize Date Time ranges input
+                        </ion-card-title>
+                    </ion-card-header>
+                    <hr>
+                    <ion-card-content>
+                        <form [formGroup]="quickTimeRange">
                             <ion-item>
                                 <ion-label class="font-nunito" color="medium">Quick Time Range</ion-label>
-                                <ion-select interface="popover" formControlName="quickTimeRange" placeholder="Select One">
-                                    <ion-select-option [value]="item.value" *ngFor="let item of timeRanges">{{item.name}}
+                                <ion-select interface="popover" formControlName="quickTimeRange"
+                                    placeholder="Select One">
+                                    <ion-select-option [value]="item.value" *ngFor="let item of timeRanges">
+                                        {{item.name}}
                                     </ion-select-option>
                                 </ion-select>
                             </ion-item>
+                        </form>
+                        <form [formGroup]="customTimeRange">
                             <div text-center pad-10-vertical>
                                 <ion-text class="font-heading-bold" color="dark">----- OR -----</ion-text>
                             </div>
@@ -94,9 +90,8 @@
                             </ion-item>
                             <ion-item>
                                 <ion-label class="font-nunito" color="medium">MM DD YY</ion-label>
-                                <!--                                <ion-datetime displayFormat="MM DD YY" placeholder="To Date"></ion-datetime>-->
                                 <ion-label>{{selectedDate2}}</ion-label>
-                                <ion-button fill="clear" (click)="openCalendar('calendar2')" color="success" >
+                                <ion-button fill="clear" (click)="openCalendar('calendar2')" color="success">
                                     <ion-icon name="calendar" slot="end"></ion-icon>
                                 </ion-button>
                             </ion-item>
@@ -109,15 +104,17 @@
                                 </ion-label>
                                 <ion-input type="number" mode="ios" min="0" formControlName="formMinutes"></ion-input>
                             </ion-item>
-                        </ion-card-content>
-                    </ion-card>
-                </ion-col>
-                <ion-col size="4" offset="4">
-                    <div text-center>
-                        <ion-button type="submit" expand="block" size="large" [disabled]="!machineForm.valid && quickTime">Submit</ion-button>
-                    </div>
-                </ion-col>
-            </ion-row>
-        </form>
+                        </form>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+            <ion-col size="4" offset="4">
+                <div text-center>
+                    <ion-button type="button" expand="block" size="large" (click)="submitForm()"
+                        [disabled]="!quickTimeRange.valid && !customTimeRange.valid || !mandatoryForm.valid">Submit
+                    </ion-button>
+                </div>
+            </ion-col>
+        </ion-row>
     </ion-grid>
 </ion-content>

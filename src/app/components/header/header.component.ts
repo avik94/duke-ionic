@@ -1,5 +1,6 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {PopoverController} from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,13 +15,18 @@ export class HeaderComponent implements OnInit {
 
   notifications = [];
 
-  constructor(private popoverController: PopoverController) {
+  constructor(private popoverController: PopoverController, private router: Router ) {
     for (let i = 0; i < 10; i++) {
       this.notifications.push('Notification ' + i);
     }
   }
 
   ngOnInit() {
+  }
+
+  logout(){
+    localStorage.removeItem('companyName');
+    this.router.navigate(['/'])
   }
 
   async presentPopover(ev) {
