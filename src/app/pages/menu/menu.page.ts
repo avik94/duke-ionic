@@ -29,7 +29,10 @@ export class MenuPage implements OnInit {
     ];
 
 
-    constructor(private menuService: MenuService, private event: Events) {
+    constructor(
+        private menuService: MenuService, 
+        private event: Events,
+        private serverService: ServerService ) {
     }
 
     ngOnInit() {
@@ -49,7 +52,6 @@ export class MenuPage implements OnInit {
 
     selectItem(item) {
         this.notActivate = item;
-    }
-
+    }  
 
 }

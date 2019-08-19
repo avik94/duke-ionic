@@ -15,7 +15,7 @@ export class LoginPage implements OnInit {
     constructor(private router: Router, private formBuilder: FormBuilder) {
 
         this.form = formBuilder.group({
-            email: ['', [Validators.required]],
+            email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required]]
         });
     }
@@ -25,16 +25,9 @@ export class LoginPage implements OnInit {
 
     goToHome() {
         this.showSpinet = false;
-        if (this.form.value.email === "Novatec" || this.form.value.email === "DukeMedicalEquimentInternational" || this.form.value.email === "prop-new") {
-            localStorage.setItem('companyName', this.form.value.email)
-            setTimeout(() => {
-                this.showSpinet = true;
-                this.router.navigate(['/dashboard']);
-            }, 1000);
-        } else {
-            alert("Wrong User Id");
-            this.showSpinet = true;            
-        }
-
+        setTimeout(() => {
+            this.showSpinet = true;
+            this.router.navigate(['/dashboard']);
+        }, 1000);
     }
 }

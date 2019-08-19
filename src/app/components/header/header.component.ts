@@ -24,11 +24,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  logout(){
-    localStorage.removeItem('companyName');
-    this.router.navigate(['/'])
-  }
-
   async presentPopover(ev) {
     const popover = await this.popoverController.create({
       component: NotificationPopoverComponent,

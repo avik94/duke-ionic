@@ -14,10 +14,20 @@
                     <ion-card-content>
                         <form [formGroup]="mandatoryForm">
                             <ion-item lines="full">
+                                <ion-label class="font-nunito" color="medium">Company Name</ion-label>
+                                <ion-select  interface="popover" placeholder="Select One" (ionChange) = "getCompanyName($event)">
+                                    <div *ngFor="let item of comapanyName">
+                                        <ion-select-option [value]="item.name">{{item.name}}
+                                        </ion-select-option>
+                                    </div>
+                                </ion-select>
+                            </ion-item>
+                            <ion-item lines="full">
                                 <ion-label class="font-nunito" color="medium">Machine</ion-label>
-                                <ion-select formControlName="machine" interface="popover" placeholder="Select One">
-                                    <div *ngFor ="let item of machineName">
-                                        <ion-select-option [value]="item.machineName">{{item.machineName}}</ion-select-option>
+                                <ion-select formControlName="machine" interface="popover" placeholder="Select One" (ionChange) = "selectedGroup($event)">
+                                    <div *ngFor="let item of machineName">
+                                        <ion-select-option [value]="item.machineName">{{item.machineName}}
+                                        </ion-select-option>
                                     </div>
                                 </ion-select>
                             </ion-item>
@@ -25,7 +35,7 @@
                             <ion-item lines="full">
                                 <ion-label class="font-nunito" color="medium">Group</ion-label>
                                 <ion-select formControlName="group" interface="popover" placeholder="Select One"
-                                    (ionChange)="selectGroup($event)">
+                                    (ionChange)="groupSelect($event)">
                                     <ion-select-option [value]="item.name" *ngFor="let item of group; let i = index">
                                         {{item.name}}</ion-select-option>
                                 </ion-select>
@@ -33,15 +43,14 @@
                             <!-- =============== -->
                             <ion-item lines="full">
                                 <ion-label class="font-nunito" color="medium">Stats</ion-label>
-                                <ion-select formControlName="stat" interface="popover" placeholder="Select One">
-                                    <ion-select-option value="Voltage">Voltage</ion-select-option>
-                                    <ion-select-option value="Current">Current</ion-select-option>
+                                <ion-select formControlName="stat" interface="popover" placeholder="Select One" (ionChange)="stateSelect($event)">
+                                    <ion-select-option [value]="item.name" *ngFor="let item of state; let i = index">{{item.name}}</ion-select-option>
                                 </ion-select>
                             </ion-item>
                             <!-- =============== -->
                             <ion-item lines="full">
                                 <ion-label position="floating" class="font-nunito" color="medium">Threshold</ion-label>
-                                <ion-input type="number" mode="ios" min="0" formControlName="threshold"></ion-input>
+                                <ion-input type="number" mode="ios" min="0" formControlName="threshold" [value]="thresholdValue"></ion-input>
                             </ion-item>
                         </form>
                     </ion-card-content>
