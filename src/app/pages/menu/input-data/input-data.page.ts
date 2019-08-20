@@ -1,6 +1,7 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import { MenuService } from '../menu.service';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-input-data',
@@ -30,7 +31,7 @@ export class InputDataPage implements OnInit {
   seccond;
   
 
-  constructor(private menuService: MenuService, private router: Router) { }
+  constructor(private menuService: MenuService, private router: NavController) { }
   animate = false
 
   ngOnInit() {
@@ -38,7 +39,7 @@ export class InputDataPage implements OnInit {
     console.log(data)
 
     if (!data) {
-      this.router.navigate(['dashboard'])
+      this.router.navigateForward(['dashboard'])
     } else {
       if (!data.quickTimeRange) {
         this.first = true;
@@ -72,7 +73,7 @@ export class InputDataPage implements OnInit {
           this.getTime(valueInt, param)
         }
       } else {
-        this.router.navigate(['dashboard'])
+        this.router.navigateForward(['dashboard'])
       }
       this.machineName = data.machine;
       this.groupName = data.group;
@@ -93,5 +94,26 @@ export class InputDataPage implements OnInit {
     }
   }
 
+  // segment part
+
+
+  buttonList = [
+    { name: "Data Table" , buttonColor: "success" },
+    { name: "Line Plot" , buttonColor: "warning" },
+    { name: "FFT" , buttonColor: "primary" },
+    { name: "PSD" , buttonColor: "danger" },
+  ]
+
+  changeRoute(index){
+    if(index === 0){
+      this.router.navigateForward(['all-data/data-table']);
+    }else if(index === 1){
+      this.router.navigateForward(['all-data/line-plot']);
+    }else if(index === 2){
+      this.router.navigateForward(['all-data/fft']);
+    }else if(index === 3){
+      this.router.navigateForward(['all-data/psd']);
+    }
+  }
 
 }

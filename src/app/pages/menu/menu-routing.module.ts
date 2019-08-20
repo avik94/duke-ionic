@@ -17,8 +17,10 @@ const routes: Routes = [
       { path: 'psd', loadChildren: './psd/psd.module#PsdPageModule' },
       { path: 'data-table', loadChildren: './data-table/data-table.module#DataTablePageModule' },
       { path: 'input-data', loadChildren: './input-data/input-data.module#InputDataPageModule' },
+      { path: 'all-data/:name', loadChildren: './all-data/all-data.module#AllDataPageModule' },
     ]
   },
+
 
 ];
 

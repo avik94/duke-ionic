@@ -8,7 +8,7 @@
         <ion-menu-button slot="start"></ion-menu-button>
         <ion-title color="dark">Input Data</ion-title>
     </ion-toolbar>
-</ion-header>   
+</ion-header>
 <ion-content no-padding *ngIf="first">
     <ion-grid>
         <ion-row>
@@ -187,7 +187,11 @@
                 </ion-card>
             </ion-col>
         </ion-row>
-        <p padding font-2-0em>*Please select the menu from sidemenu</p>
+        <ion-row>
+            <ion-col size="3" *ngFor="let item of  buttonList let i = index">
+                <ion-button expand="block" [color]="item.buttonColor" (click) = "changeRoute(i)">{{item.name}}</ion-button>
+            </ion-col>
+        </ion-row>
     </ion-grid>
 
 </ion-content>
