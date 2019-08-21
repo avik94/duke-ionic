@@ -19,15 +19,13 @@ export class MenuPage implements OnInit {
         {title: 'Dashboard', url: '/dashboard', icon: 'home'},
         {title: 'User Profile', url: '/dashboard', icon: 'contact'},
         {title: 'Company Name', url: '/dashboard', icon: 'briefcase'},
+        {title: 'User Manual', url: '/line-plot', icon: 'analytics'},
+        {title: 'Instalation Guide', url: '/data-table', icon: 'list-box'},
+        {title: 'Settings', url: '/fft', icon: 'home'},
+        {title: 'About', url: '/psd', icon: 'home'},
+        {title: 'Terms & Conditions', url: '/line-plot', icon: 'analytics'},
+        {title: 'Privacy Policy', url: '/data-table', icon: 'list-box'},
     ];
-
-    plotMenu = [
-        {title: 'Line Plot', url: '/line-plot', icon: 'analytics'},
-        {title: 'Data Table', url: '/data-table', icon: 'list-box'},
-        {title: 'FFT', url: '/fft', icon: 'home'},
-        {title: 'PSD', url: '/psd', icon: 'home'}
-    ];
-
 
     constructor(
         private menuService: MenuService, 

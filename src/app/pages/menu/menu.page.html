@@ -34,30 +34,6 @@
                     </ion-menu-toggle>
                 </ng-container>
             </ion-list>
-            <br>
-            <br>
-            <ion-list>
-                <ng-container *ngFor="let item of plotMenu; let i = index" >
-                    <ion-menu-toggle [autoHide]="false">
-                        <ion-item 
-                            (click)= "selectItem(i)" 
-                            lines="none" 
-                            routerDirection="root" 
-                            [routerLink]="[item.url]"
-                            routerLinkActive="item-active" [disabled]="disabledValue"
-                            [ngClass]="{'backGroundMenu': activeClass}" >
-                            <ion-icon slot="start" [name]="item.icon" color="light"></ion-icon>
-                            <ion-label 
-                                color="light" 
-                                class="font-heading editor_choice"
-                                [ngClass]="{'editor_choice': activeClass, 'notActivate': notActivate === i}" 
-                                >{{item.title}}
-                            </ion-label>
-                                
-                        </ion-item>
-                    </ion-menu-toggle>
-                </ng-container>
-            </ion-list>
         </ion-content>
     </ion-menu>
     <ion-router-outlet id="menu-content"></ion-router-outlet>
