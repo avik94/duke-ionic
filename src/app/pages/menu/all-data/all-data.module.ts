@@ -12,6 +12,12 @@ import { Angular2CsvModule } from 'angular2-csv';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 
+// plot ly
+import * as PlotlyJS from 'plotly.js/dist/plotly.js';
+import { PlotlyModule } from 'angular-plotly.js';
+ 
+PlotlyModule.plotlyjs = PlotlyJS;
+
 const routes: Routes = [
   {
     path: '',
@@ -24,6 +30,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     ChartModule,
+    PlotlyModule,
     Angular2CsvModule,
     Ng2SearchPipeModule,
     NgxPaginationModule,

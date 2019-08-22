@@ -71,7 +71,7 @@
                   <!-- end -->
                 </ion-col>
                 <ion-col size="12" *ngIf="segmentActive === segmentList[1].key">
-                    <chart type="line" [data]="data" [options]="options" style="padding: 20px 10px;"></chart>
+                  <plotly-plot [data]="graph.data" [layout]="graph.layout"  [useResizeHandler]="true"></plotly-plot>
                 </ion-col>
                 <ion-col size="12" *ngIf="segmentActive === segmentList[2].key">
                   <p padding>FFT</p>

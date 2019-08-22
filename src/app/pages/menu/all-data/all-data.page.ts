@@ -28,6 +28,9 @@ export class AllDataPage implements OnInit {
         this.activeButton = 3;
       }
     })
+    setTimeout(()=>{
+      window.dispatchEvent(new Event('resize'));
+    },300)
   }
 
   segmentList = [
@@ -43,59 +46,24 @@ export class AllDataPage implements OnInit {
   }
 
   // lineplot
-  data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [{
-      data: [20,70,10,72,15,35,10],
-      label: 'Series A',
-      backgroundColor: "#b9b9b900",
-      borderColor: '#ff9198', 
-    }, {
-      data: [50,50,50,50,50,50,50],
-      label: 'Series B',
-      backgroundColor: "#b9b9b900",
-      borderColor: 'green',
-    }, {
-      data: [20, 33, 35, 40, 30, 40, 50],
-      label: 'Series C',
-      backgroundColor: "#b9b9b900",
-      borderColor: '#1976d2',
-    },
+  graph = {
+    data: [
+        { 
+          y: [1, 2, 3,8,4,54,5,18,5,6], 
+          x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          type: 'scatter', 
+          mode: 'lines+points', 
+          marker: {color: 'red'}
+        },
+        { 
+          y: [1, 4, 73,38,4,35,5,15,10,9], 
+          x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 
+          type: 'scatter', 
+          mode: 'lines+points', 
+          marker: {color: 'green'}
+        },
     ],
-  };
-
-  options = {
-    responsive: true,
-    maintainAspectRatio: true,
-    scales: {
-      xAxes: [
-        {
-          gridLines: {
-            display: true,
-            color: '#efefef',
-          },
-          ticks: {
-            fontColor: 'black',
-          },
-        },
-      ],
-      yAxes: [
-        {
-          gridLines: {
-            display: true,
-            color: '#efefef',
-          },
-          ticks: {
-            fontColor: 'black',
-          },
-        },
-      ],
-    },
-    legend: {
-      labels: {
-        fontColor: 'orange',
-      },
-    },
+    layout: {title: 'Line Plot', autosize: true },
   };
 
   // data table
